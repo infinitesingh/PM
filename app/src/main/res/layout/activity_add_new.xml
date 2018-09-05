@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_new">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".add_new">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/others_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/driver_detail"
+            app:layout_constraintVertical_bias="1.0">
+
+            <Button
+                android:id="@+id/other_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:onClick="cancel"
+                android:text="@android:string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/other_save"
+                app:layout_constraintTop_toBottomOf="@+id/other_vehicle_image" />
+
+
+            <TextView
+                android:id="@+id/tour_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:text="@string/tour_type"
+                android:textAlignment="center"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Spinner
+                android:id="@+id/other_vehicle_type_spin"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:entries="@array/others_vehicle_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OtherRadioGroup" />
+
+            <EditText
+                android:id="@+id/other_license_plate_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/license_plate_no"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/other_vehicle_type_spin" />
+
+            <ImageView
+                android:id="@+id/other_vehicle_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/vehicle_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/other_license_plate_no"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/other_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:onClick="saveOther"
+                android:text="@string/save_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/other_cancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/other_vehicle_image" />
+
+            <RadioGroup
+                android:id="@+id/OtherRadioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tour_type">
+
+                <RadioButton
+                    android:id="@+id/sightseen_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/sightseeing"
+                    app:layout_constraintTop_toBottomOf="@+id/tour_type"
+                    tools:layout_editor_absoluteX="208dp" />
+
+                <RadioButton
+                    android:id="@+id/pilgrim_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/piligrimage"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="105dp" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/otherCaptureButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:drawable/ic_menu_camera"
+                app:layout_constraintStart_toEndOf="@+id/other_vehicle_image"
+                app:layout_constraintTop_toTopOf="@+id/other_vehicle_image" />
+
+            <Button
+                android:id="@+id/otherGallerylButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_gallery"
+                app:layout_constraintEnd_toStartOf="@+id/otherUpload"
+                app:layout_constraintStart_toEndOf="@+id/otherCaptureButton"
+                app:layout_constraintTop_toTopOf="@+id/otherCaptureButton" />
+
+            <Button
+                android:id="@+id/otherUpload"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_upload"
+                app:layout_constraintStart_toEndOf="@+id/otherGallerylButton"
+                app:layout_constraintTop_toTopOf="@+id/otherGallerylButton" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/vehicle_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/driver_detail">
+
+            <Button
+                android:id="@+id/vehicle_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:onClick="cancel"
+                android:text="@string/cancel_button"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vehicle_save"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_image" />
+
+            <Spinner
+                android:id="@+id/vehicle_type_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:entries="@array/vehicle_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/license_plate_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/license_plate_no"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_type_spinner" />
+
+            <Spinner
+                android:id="@+id/vehicle_avail_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:entries="@array/vehicle_avail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/license_plate_no" />
+
+            <ImageView
+                android:id="@+id/vehicle_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/vehicle_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_avail_spinner"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/vehicle_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="8dp"
+                android:onClick="saveVehicle"
+                android:text="@string/save_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/vehicle_cancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_image" />
+
+            <Button
+                android:id="@+id/vehicleCancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="28dp"
+                android:layout_marginStart="16dp"
+                android:onClick="cancel"
+                android:text="@string/cancel_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vehicle_save"
+                app:layout_constraintTop_toTopOf="@+id/vehicle_save" />
+
+            <Button
+                android:id="@+id/vehicleCaptureButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_camera"
+                app:layout_constraintBottom_toBottomOf="@+id/vehicle_image"
+                app:layout_constraintStart_toEndOf="@+id/vehicle_image"
+                app:layout_constraintTop_toTopOf="@+id/vehicle_image" />
+
+            <Button
+                android:id="@+id/vehicleGallaryButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_gallery"
+                app:layout_constraintBottom_toBottomOf="@+id/vehicleCaptureButton"
+                app:layout_constraintStart_toEndOf="@+id/vehicleCaptureButton"
+                app:layout_constraintTop_toTopOf="@+id/vehicleCaptureButton" />
+
+            <Button
+                android:id="@+id/vehicleUploadButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_upload"
+                app:layout_constraintBottom_toBottomOf="@+id/vehicleGallaryButton"
+                app:layout_constraintStart_toEndOf="@+id/vehicleGallaryButton"
+                app:layout_constraintTop_toTopOf="@+id/vehicleGallaryButton" />
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/addOtherButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/add_other"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/addVehicleButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/add_vehicle"
+            app:layout_constraintEnd_toStartOf="@+id/addOtherButton"
+            app:layout_constraintStart_toEndOf="@+id/addDriverButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/addDriverButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="28dp"
+            android:elevation="0dp"
+            android:text="@string/add_driver"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/driver_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addOtherButton">
+
+            <EditText
+                android:id="@+id/driver_name_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="@string/driver_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/driver_license"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/driver_licesnse_number"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_name_text" />
+
+            <EditText
+                android:id="@+id/driver_aadhar_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/adhaar_number"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_license" />
+
+            <EditText
+                android:id="@+id/driver_city_prefer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/driver_city_preference"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_aadhar_no" />
+
+            <EditText
+                android:id="@+id/driver_phone_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/driver_phone"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_city_prefer" />
+
+            <ImageView
+                android:id="@+id/driver_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/driver_image"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_phone_no"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:onClick="saveDriver"
+                android:text="@string/save_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/driver_image" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:onClick="cancel"
+                android:text="@android:string/cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/save"
+                app:layout_constraintTop_toTopOf="@+id/save" />
+
+            <Button
+                android:id="@+id/captureButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:drawable/ic_menu_camera"
+                app:layout_constraintBottom_toBottomOf="@+id/driver_image"
+                app:layout_constraintEnd_toStartOf="@+id/selectImage"
+                app:layout_constraintStart_toEndOf="@+id/driver_image"
+                app:layout_constraintTop_toTopOf="@+id/driver_image" />
+
+            <Button
+                android:id="@+id/selectImage"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:drawable/ic_menu_gallery"
+                app:layout_constraintBottom_toBottomOf="@+id/captureButton"
+                app:layout_constraintStart_toEndOf="@+id/captureButton"
+                app:layout_constraintTop_toTopOf="@+id/captureButton" />
+
+            <Button
+                android:id="@+id/driverUpoadButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_upload"
+                app:layout_constraintBottom_toBottomOf="@+id/selectImage"
+                app:layout_constraintStart_toEndOf="@+id/selectImage"
+                app:layout_constraintTop_toTopOf="@+id/selectImage" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

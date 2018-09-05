@@ -1,0 +1,4 @@
+#Wed Sep 05 21:17:28 IST 2018
+base.0=/root/Pictures/PM/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
