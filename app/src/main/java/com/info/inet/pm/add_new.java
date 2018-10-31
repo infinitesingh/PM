@@ -1,3 +1,5 @@
+//Add Image view for license image
+
 package com.info.inet.pm;
 
 import android.app.ProgressDialog;
